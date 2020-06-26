@@ -17,12 +17,13 @@ with open(csvpath) as csvfile:
     csv_header = next(csvreader)
 
     # iterate through rows of csv file
-    for row in csv_header:
+    for row in csvreader:
+        
         # total number of months
         total_months = total_months + 1
         
         # total net amount
-        # net_value = net_value + int(row[1])
+        net_value = net_value + int(row[1])
 
         # find greatest increase
         if int(row[1]) >= increase:
@@ -32,7 +33,7 @@ with open(csvpath) as csvfile:
         # find greatest decrease
         if int(row[1]) <= decrease:
             decrease = int(row[1])
-            date_decrease = str(row[1])
+            date_decrease = str(row[0])
     
     
    
