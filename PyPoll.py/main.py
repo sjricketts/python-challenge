@@ -47,3 +47,5 @@ print(f"Khan: ( )")    # look up how to include percentages
 print(f"Correy: ( )")
 print(f"Li:  ( )")
 print(f"O'Tooley: ( )")
+
+# export results as text file
