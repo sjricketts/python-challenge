@@ -10,6 +10,7 @@ total_months = 0
 net_value = 0
 increase = 0
 decrease = 0
+profit = []
 
 
 with open(csvpath) as csvfile:
@@ -35,25 +36,21 @@ with open(csvpath) as csvfile:
             decrease = int(row[1])
             date_decrease = str(row[0])
         
-        # average of the changes
-        first_month = int(float(row[0]))
-        print(first_month)
-        
-        last_month = int(float(row[86]))
-        print(last_month)
+        # create column for profits/loses row
+        profit.append(row[1])
 
-        # differece = last_month - first_month
-        # b = len(total_months)
-        # average_change =  a/b 
-        # print(average_change)
-
+    # average of the changes
+    first_month = int(profit[0]) 
+    last_month = int(profit[85])
+    difference = last_month - first_month
+    average_change =  round(difference / (total_months - 1), 2)
 
 # Printed Analysis
 print("Financial Analysis")
 print("--------------------------")
 print(f"Total Months: {total_months}")
 print(f"Total: ${net_value}")
-#print(f"Average Change: $({})")
+print(f"Average Change: $({average_change})")
 print(f"Greatest Increase in Profits: {date_increase} (${increase})")
 print(f"Greatest Decrease in Profits: {date_decrease} (${decrease})")
 
