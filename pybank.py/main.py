@@ -34,13 +34,12 @@ with open(csvpath) as csvfile:
         if int(row[1]) <= decrease:
             decrease = int(row[1])
             date_decrease = str(row[0])
-    
-    
-   
-    # # variable for first month
-    # row [1]
-    # variable for last month
-    # row [8x]
+        
+        # average of the changes
+        a = (int(row[86]) - int(row[0]))
+        b = len(total_months)
+        average_change =  a/b 
+        print(average_change)
 
 
 # Printed Analysis
@@ -48,10 +47,10 @@ print("Financial Analysis")
 print("--------------------------")
 print(f"Total Months: {total_months}")
 # how do I include dollar signs?
-print(f"Total: {net_value}")
+print(f"Total: ${net_value}")
 print(f"Average Change: ")
-print(f"Greatest Increase in Profits: {date_increase} ({increase})")
-print(f"Greatest Decrease in Profits: {date_decrease} ({decrease})")
+print(f"Greatest Increase in Profits: {date_increase} (${increase})")
+print(f"Greatest Decrease in Profits: {date_decrease} (${decrease})")
 
 
 
