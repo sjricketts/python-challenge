@@ -38,7 +38,7 @@ with open(csvpath) as csvfile:
             otooley_votes = otooley_votes + 1
 
 # determine winner
-if kahn_votes >
+# if kahn_votes >
 
 
 # figure percentage of votes for each candidate       
@@ -48,7 +48,10 @@ li_percent = li_votes/total_votes
 otooley_percent = otooley_votes/total_votes
 
 # format to a percent
-kahn_format = "{:.2 %}".format(kahn_percent)
+kahn_format = "{:.3%}".format(kahn_percent)
+correy_format = "{:.3%}".format(correy_percent)
+li_format = "{:.3%}".format(li_percent)
+otooley_format = "{:.3%}".format(otooley_percent)
 
 # Printed Analysis
 print("Election Results")
@@ -56,9 +59,9 @@ print("--------------------------")
 print(f"Total Votes: {total_votes}")
 print("--------------------------")
 print(f"Khan: {kahn_format} ({kahn_votes})")    # look up how to include percentages
-print(f"Correy: {correy_percent} ({correy_votes})")
-print(f"Li: {li_percent} ({li_votes})")
-print(f"O'Tooley: {otooley_percent} ({otooley_votes})")
+print(f"Correy: {correy_format} ({correy_votes})")
+print(f"Li: {li_format} ({li_votes})")
+print(f"O'Tooley: {otooley_format} ({otooley_votes})")
 print("--------------------------")
 print("Winner: ")
 print("--------------------------")
