@@ -46,14 +46,17 @@ with open(csvpath) as csvfile:
     average_change =  round(difference / (total_months - 1), 2)
 
 # Printed Analysis
-print("Financial Analysis")
-print("--------------------------")
-print(f"Total Months: {total_months}")
-print(f"Total: ${net_value}")
-print(f"Average Change: $({average_change})")
-print(f"Greatest Increase in Profits: {date_increase} (${increase})")
-print(f"Greatest Decrease in Profits: {date_decrease} (${decrease})")
-
-
+results = (
+    f"\n\nFinancial Analysis\n"
+    f"-------------------------\n"
+    f"Total Months: {total_months}\n"
+    f"Total: ${net_value}\n"
+    f"Average Change: $({average_change})\n"
+    f"Greatest Increase in Profits: {date_increase} (${increase})\n"
+    f"Greatest Decrease in Profits: {date_decrease} (${decrease})\n"
+)
+print(results, end="")
 
 # Export text file
+with open("Analysis/main.txt", "w") as txt_file:
+    txt_file.write(results)
