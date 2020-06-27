@@ -12,7 +12,7 @@ kahn_votes = 0
 correy_votes = 0
 li_votes = 0
 otooley_votes = 0
-winner = []
+winner = ""
 
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -38,7 +38,14 @@ with open(csvpath) as csvfile:
             otooley_votes = otooley_votes + 1
 
 # determine winner
-# if kahn_votes >
+if otooley_votes > li_votes:
+    winner = "O'Tooley"
+elif li_votes > correy_votes:
+    winner = "Li"
+elif correy_votes > kahn_votes:
+    winner = "Correy"
+else:
+    winner = "Kahn"
 
 
 # figure percentage of votes for each candidate       
@@ -54,16 +61,21 @@ li_format = "{:.3%}".format(li_percent)
 otooley_format = "{:.3%}".format(otooley_percent)
 
 # Printed Analysis
-print("Election Results")
-print("--------------------------")
-print(f"Total Votes: {total_votes}")
-print("--------------------------")
-print(f"Khan: {kahn_format} ({kahn_votes})")    # look up how to include percentages
-print(f"Correy: {correy_format} ({correy_votes})")
-print(f"Li: {li_format} ({li_votes})")
-print(f"O'Tooley: {otooley_format} ({otooley_votes})")
-print("--------------------------")
-print("Winner: ")
-print("--------------------------")
+results = (
+    f"\n\nElection Results\n"
+    f"-------------------------\n"
+    f"Total Votes: {total_votes}\n"
+    f"-------------------------\n"
+    f"Khan: {kahn_format} ({kahn_votes})\n"
+    f"Correy: {correy_format} ({correy_votes})\n"
+    f"Li: {li_format} ({li_votes})\n"
+    f"O'Tooley: {otooley_format} ({otooley_votes})\n"
+    f"--------------------------\n"
+    f"Winner: {winner}\n"
+    f"--------------------------\n"
+)
+print(results, end="")
 
 # export results as text file
+with open("Analysis/main.txt", "w") as txt_file:
+    txt_file.write(results)
